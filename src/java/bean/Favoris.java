@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -25,9 +26,9 @@ public class Favoris implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToMany
-    private List<Restaurant> restaurants;
-    @OneToOne
+    @ManyToOne
+    private Repas repas;
+    @ManyToOne
     private Client client;
 
     public Long getId() {
@@ -62,5 +63,5 @@ public class Favoris implements Serializable {
     public String toString() {
         return "bean.Client[ id=" + id + " ]";
     }
-    
+
 }

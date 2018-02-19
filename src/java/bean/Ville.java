@@ -26,8 +26,6 @@ public class Ville implements Serializable {
     private Long id;
     private String nom;
     @OneToMany
-    private List<Restaurant> restaurants;
-    @OneToMany
     private List<Quartier> quartiers;
 
     public Long getId() {

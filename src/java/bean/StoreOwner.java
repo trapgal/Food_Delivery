@@ -12,21 +12,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author HP
  */
 @Entity
-public class TypeRepas implements Serializable {
+public class StoreOwner implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nom;
-    @OneToMany(mappedBy = "typeRepas")
-    private List<Repas> repass;
+
+    @OneToMany(mappedBy = "storeOwner")
+    private List<Restaurant> restaurants;
 
     public Long getId() {
         return id;
@@ -46,10 +47,10 @@ public class TypeRepas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TypeRepas)) {
+        if (!(object instanceof StoreOwner)) {
             return false;
         }
-        TypeRepas other = (TypeRepas) object;
+        StoreOwner other = (StoreOwner) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,7 +59,7 @@ public class TypeRepas implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Client[ id=" + id + " ]";
+        return "bean.StoreOwner[ id=" + id + " ]";
     }
 
 }

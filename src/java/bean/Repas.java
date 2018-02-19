@@ -21,6 +21,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Repas implements Serializable {
 
+    @OneToMany(mappedBy = "repas")
+    private List<SupplementRepas> supplementRepass;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,13 +33,15 @@ public class Repas implements Serializable {
     @OneToMany
     private List<Restaurant> restaurants;
     @OneToMany
-    private List<NationaliteRepas> nationaliteRepass;
-    @OneToMany
     private List<Supplement> supplemnts;
     @ManyToOne
     private TypeRepas typeRepas;
+    @OneToMany(mappedBy = "repas")
+    private List<IngredientRepas> ingredientRepass;
     @ManyToOne
-    private CommandeItem commandeItem;
+    private NationaliteRepas nationaliteRepas;
+    @OneToMany(mappedBy = "repas")
+    private List<CommandeItem> commandeItems;
 
     public Long getId() {
         return id;

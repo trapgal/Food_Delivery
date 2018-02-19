@@ -7,10 +7,12 @@ package bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
@@ -32,10 +34,15 @@ public class Client implements Serializable {
     private String ville;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateNaissance;
-    @OneToOne
-    private Commande commande;
-    @OneToOne
-    private Favoris favoris;
+    
+    @OneToMany(mappedBy = "client")
+    private List<Reclamation> reclamations;
+    @OneToMany(mappedBy = "client")
+    private List<Commande> commandes;
+    //@OneToOne
+    //private Commande commande;// supp
+    //@OneToOne
+    //private Favoris favoris; //supp
 
     public Long getId() {
         return id;

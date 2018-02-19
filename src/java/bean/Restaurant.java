@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -20,6 +21,13 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Restaurant implements Serializable {
+
+    @OneToOne(mappedBy = "restaurant")
+    @ManyToOne
+    private StoreOwner storeOwner;
+
+    @ManyToOne
+    private Quartier quartier;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -31,13 +39,9 @@ public class Restaurant implements Serializable {
     private String heureFermeture;
     private String lat;
     private String lng;
-    
-    @OneToMany
-    private List<Ville> villes;
     @OneToMany
     private List<Repas> repass;
-    @ManyToOne
-    private Favoris favoris;
+    
 
     public Long getId() {
         return id;

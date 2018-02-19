@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -23,8 +24,12 @@ public class CommandeItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Commande commande;
+    @ManyToOne
+    private Repas repas;
+    private Double prix;
+    private int qte;
 
     public Long getId() {
         return id;
@@ -58,5 +63,5 @@ public class CommandeItem implements Serializable {
     public String toString() {
         return "bean.Admin[ id=" + id + " ]";
     }
-    
+
 }

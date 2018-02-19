@@ -6,27 +6,27 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author HP
  */
 @Entity
-public class TypeRepas implements Serializable {
+public class SupplementRepas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nom;
-    @OneToMany(mappedBy = "typeRepas")
-    private List<Repas> repass;
+    @ManyToOne
+    private Supplement supplement;
+    @ManyToOne
+    private Repas repas;
 
     public Long getId() {
         return id;
@@ -46,10 +46,10 @@ public class TypeRepas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TypeRepas)) {
+        if (!(object instanceof SupplementRepas)) {
             return false;
         }
-        TypeRepas other = (TypeRepas) object;
+        SupplementRepas other = (SupplementRepas) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,7 +58,7 @@ public class TypeRepas implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Client[ id=" + id + " ]";
+        return "bean.SupplementReaps[ id=" + id + " ]";
     }
 
 }
