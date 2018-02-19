@@ -25,6 +25,7 @@ public class Quartier implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nom;
     @ManyToOne
     private Ville ville;
     @OneToMany(mappedBy = "quartier")
@@ -62,5 +63,5 @@ public class Quartier implements Serializable {
     public String toString() {
         return "bean.Admin[ id=" + id + " ]";
     }
-    
+
 }

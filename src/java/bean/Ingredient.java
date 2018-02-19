@@ -31,7 +31,6 @@ public class Ingredient implements Serializable {
     private Long id;
     private String nom;
     
-    private List<NationaliteRepas> nationnaliteRepass;
     
 
     public Long getId() {

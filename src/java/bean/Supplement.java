@@ -28,8 +28,7 @@ public class Supplement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    private Repas repas;// 
+    private String nom;
 
     public Long getId() {
         return id;
@@ -63,5 +62,5 @@ public class Supplement implements Serializable {
     public String toString() {
         return "bean.Client[ id=" + id + " ]";
     }
-    
+
 }
