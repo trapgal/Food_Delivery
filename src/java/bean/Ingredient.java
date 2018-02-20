@@ -22,16 +22,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class Ingredient implements Serializable {
 
-    @OneToMany(mappedBy = "ingredient")
-    private List<IngredientRepas> ingredientRepass;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
-    
-    
+    @OneToMany(mappedBy = "ingredient")
+    private List<IngredientRepas> ingredientRepass;
 
     public Long getId() {
         return id;
@@ -65,5 +62,5 @@ public class Ingredient implements Serializable {
     public String toString() {
         return "bean.Client[ id=" + id + " ]";
     }
-    
+
 }

@@ -21,14 +21,13 @@ import javax.persistence.OneToMany;
 @Entity
 public class Supplement implements Serializable {
 
-    @OneToMany(mappedBy = "supplement")
-    private List<SupplementRepas> supplementRepass;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
+    @OneToMany(mappedBy = "supplement")
+    private List<SupplementRepas> supplementRepass;
 
     public Long getId() {
         return id;

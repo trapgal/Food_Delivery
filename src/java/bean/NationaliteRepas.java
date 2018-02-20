@@ -25,9 +25,9 @@ public class NationaliteRepas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nom;
     @OneToMany(mappedBy = "nationaliteRepas")
     private List<Repas> repass;
-    private String nom;
 
     public Long getId() {
         return id;

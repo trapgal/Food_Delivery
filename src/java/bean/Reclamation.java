@@ -29,6 +29,8 @@ public class Reclamation implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateReclamation;
     private String message;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateTraitement;
 
     @ManyToOne
     private Admin admin;

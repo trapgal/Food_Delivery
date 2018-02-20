@@ -22,13 +22,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Restaurant implements Serializable {
 
-    @OneToOne(mappedBy = "restaurant")
-    @ManyToOne
-    private StoreOwner storeOwner;
-
-    @ManyToOne
-    private Quartier quartier;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,7 +34,12 @@ public class Restaurant implements Serializable {
     private String lng;
     @OneToMany
     private List<Repas> repass;
-    
+    @OneToOne(mappedBy = "restaurant")
+    @ManyToOne
+    private StoreOwner storeOwner;
+
+    @ManyToOne
+    private Quartier quartier;
 
     public Long getId() {
         return id;

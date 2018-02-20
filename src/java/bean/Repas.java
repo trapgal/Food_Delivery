@@ -33,7 +33,7 @@ public class Repas implements Serializable {
     @OneToMany
     private List<Restaurant> restaurants;
     @OneToMany
-    private List<Supplement> supplemnts;
+    private List<Supplement> supplements;
     @ManyToOne
     private TypeRepas typeRepas;
     @OneToMany(mappedBy = "repas")
@@ -43,7 +43,6 @@ public class Repas implements Serializable {
     @OneToMany(mappedBy = "repas")
     private List<CommandeItem> commandeItems;
 
-    
     public Long getId() {
         return id;
     }

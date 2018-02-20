@@ -24,12 +24,12 @@ public class CommandeItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Double prix;
+    private int qte;
     @ManyToOne
     private Commande commande;
     @ManyToOne
     private Repas repas;
-    private Double prix;
-    private int qte;
 
     public Long getId() {
         return id;

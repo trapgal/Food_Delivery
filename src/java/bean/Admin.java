@@ -32,11 +32,12 @@ public class Admin implements Serializable {
     private String adresseMail;
     private String telephone;
     private String ville;
-    @Temporal(javax.persistence.TemporalType.DATE)
+
     @OneToMany(mappedBy = "admin")
     private List<Reclamation> reclamations;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateNaissance;
-    private Recrutement recrutement;
+    //private Recrutement recrutement;
 
     public Long getId() {
         return id;

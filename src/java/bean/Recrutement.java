@@ -23,8 +23,8 @@ public class Recrutement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
-    private Client client;
+    //@OneToOne
+    //private Client client;
 
     public Long getId() {
         return id;
@@ -58,5 +58,5 @@ public class Recrutement implements Serializable {
     public String toString() {
         return "bean.Client[ id=" + id + " ]";
     }
-    
+
 }

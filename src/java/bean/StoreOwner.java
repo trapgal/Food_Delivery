@@ -25,6 +25,12 @@ public class StoreOwner implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nom;
+    private String prenom;
+    private String adresseMail;
+    private String telephone;
+    private String ville;
+    private String numAutorisation;
 
     @OneToMany(mappedBy = "storeOwner")
     private List<Restaurant> restaurants;
