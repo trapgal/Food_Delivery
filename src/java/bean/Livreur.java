@@ -10,25 +10,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author HP
  */
 @Entity
-public class Recrutement implements Serializable {
+public class Livreur implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    private Admin admin;
-    @ManyToOne
-    private Livreur livreur;
-    //@OneToOne
-    //private Client client;
 
     public Long getId() {
         return id;
@@ -48,10 +41,10 @@ public class Recrutement implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Recrutement)) {
+        if (!(object instanceof Livreur)) {
             return false;
         }
-        Recrutement other = (Recrutement) object;
+        Livreur other = (Livreur) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -60,7 +53,7 @@ public class Recrutement implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Client[ id=" + id + " ]";
+        return "bean.Livreur[ id=" + id + " ]";
     }
-
+    
 }
