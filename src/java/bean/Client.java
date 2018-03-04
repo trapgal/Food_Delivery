@@ -32,6 +32,7 @@ public class Client implements Serializable {
     private String adresseMail;
     private String telephone;
     private String ville;
+    private String changement;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateNaissance;
     
