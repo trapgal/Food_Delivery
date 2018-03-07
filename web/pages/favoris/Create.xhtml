@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FavorisCreateDlg" widgetVar="FavorisCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFavorisTitle}">
+            <h:form id="FavorisCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{favorisController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFavorisLabel_repas}" for="repas" />
+                        <p:selectOneMenu id="repas" value="#{favorisController.selected.repas}" >
+                            <f:selectItems value="#{repasController.itemsAvailableSelectOne}"
+                                           var="repasItem"
+                                           itemValue="#{repasItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFavorisLabel_client}" for="client" />
+                        <p:selectOneMenu id="client" value="#{favorisController.selected.client}" >
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="clientItem"
+                                           itemValue="#{clientItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFavorisLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{favorisController.selected.id}" title="#{bundle.CreateFavorisTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{favorisController.create}" value="#{bundle.Save}" update="display,:FavorisListForm:datalist,:growl" oncomplete="handleSubmit(args,'FavorisCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FavorisCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

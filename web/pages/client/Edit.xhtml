@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClientEditDlg" widgetVar="ClientEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditClientTitle}">
+            <h:form id="ClientEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clientController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditClientLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{clientController.selected.nom}" title="#{bundle.EditClientTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{clientController.selected.prenom}" title="#{bundle.EditClientTitle_prenom}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_adresseMail}" for="adresseMail" />
+                        <p:inputText id="adresseMail" value="#{clientController.selected.adresseMail}" title="#{bundle.EditClientTitle_adresseMail}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_telephone}" for="telephone" />
+                        <p:inputText id="telephone" value="#{clientController.selected.telephone}" title="#{bundle.EditClientTitle_telephone}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_ville}" for="ville" />
+                        <p:inputText id="ville" value="#{clientController.selected.ville}" title="#{bundle.EditClientTitle_ville}" />
+                        <p:outputLabel value="#{bundle.EditClientLabel_dateNaissance}" for="dateNaissance" />
+                        <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{clientController.selected.dateNaissance}" title="#{bundle.EditClientTitle_dateNaissance}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditClientLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{clientController.selected.id}" title="#{bundle.EditClientTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clientController.update}" value="#{bundle.Save}" update="display,:ClientListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClientEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClientEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RestaurantCreateDlg" widgetVar="RestaurantCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRestaurantTitle}">
+            <h:form id="RestaurantCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{restaurantController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRestaurantLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{restaurantController.selected.id}" title="#{bundle.CreateRestaurantTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{restaurantController.create}" value="#{bundle.Save}" update="display,:RestaurantListForm:datalist,:growl" oncomplete="handleSubmit(args,'RestaurantCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RestaurantCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
