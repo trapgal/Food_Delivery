@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CommandeCreateDlg" widgetVar="CommandeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCommandeTitle}">
+            <h:form id="CommandeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{commandeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCommandeLabel_dateCmd}" for="dateCmd" />
+                        <p:calendar id="dateCmd" pattern="MM/dd/yyyy" value="#{commandeController.selected.dateCmd}" title="#{bundle.EditCommandeTitle_dateCmd}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCommandeLabel_total}" for="total" />
+                        <p:inputText id="total" value="#{commandeController.selected.total}" title="#{bundle.CreateCommandeTitle_total}" />
+                        <p:outputLabel value="#{bundle.CreateCommandeLabel_adresseLivraison}" for="adresseLivraison" />
+                        <p:inputText id="adresseLivraison" value="#{commandeController.selected.adresseLivraison}" title="#{bundle.CreateCommandeTitle_adresseLivraison}" />
+                        <p:outputLabel value="#{bundle.CreateCommandeLabel_client}" for="client" />
+                        <p:selectOneMenu id="client" value="#{commandeController.selected.client}" >
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="clientItem"
+                                           itemValue="#{clientItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCommandeLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{commandeController.selected.id}" title="#{bundle.CreateCommandeTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{commandeController.create}" value="#{bundle.Save}" update="display,:CommandeListForm:datalist,:growl" oncomplete="handleSubmit(args,'CommandeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CommandeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

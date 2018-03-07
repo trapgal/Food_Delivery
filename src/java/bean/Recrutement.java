@@ -30,6 +30,22 @@ public class Recrutement implements Serializable {
     //@OneToOne
     //private Client client;
 
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    public Livreur getLivreur() {
+        return livreur;
+    }
+
+    public void setLivreur(Livreur livreur) {
+        this.livreur = livreur;
+    }
+
     public Long getId() {
         return id;
     }

@@ -41,6 +41,14 @@ public class Reclamation implements Serializable {
         return id;
     }
 
+    public Date getDateTraitement() {
+        return dateTraitement;
+    }
+
+    public void setDateTraitement(Date dateTraitement) {
+        this.dateTraitement = dateTraitement;
+    }
+
     public String getNumReclamation() {
         return numReclamation;
     }

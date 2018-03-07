@@ -35,6 +35,62 @@ public class StoreOwner implements Serializable {
     @OneToMany(mappedBy = "storeOwner")
     private List<Restaurant> restaurants;
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getAdresseMail() {
+        return adresseMail;
+    }
+
+    public void setAdresseMail(String adresseMail) {
+        this.adresseMail = adresseMail;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getNumAutorisation() {
+        return numAutorisation;
+    }
+
+    public void setNumAutorisation(String numAutorisation) {
+        this.numAutorisation = numAutorisation;
+    }
+
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
+    }
+
     public Long getId() {
         return id;
     }

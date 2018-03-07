@@ -28,6 +28,22 @@ public class IngredientRepas implements Serializable {
     @ManyToOne
     private Repas repas;
 
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    public Repas getRepas() {
+        return repas;
+    }
+
+    public void setRepas(Repas repas) {
+        this.repas = repas;
+    }
+
     public Long getId() {
         return id;
     }

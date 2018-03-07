@@ -30,6 +30,22 @@ public class Ingredient implements Serializable {
     @OneToMany(mappedBy = "ingredient")
     private List<IngredientRepas> ingredientRepass;
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public List<IngredientRepas> getIngredientRepass() {
+        return ingredientRepass;
+    }
+
+    public void setIngredientRepass(List<IngredientRepas> ingredientRepass) {
+        this.ingredientRepass = ingredientRepass;
+    }
+
     public Long getId() {
         return id;
     }

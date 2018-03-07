@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FactureViewDlg" widgetVar="FactureViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFactureTitle}">
+            <h:form id="FactureViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{factureController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFactureLabel_numeroFacture}"/>
+                        <h:outputText value="#{factureController.selected.numeroFacture}" title="#{bundle.ViewFactureTitle_numeroFacture}"/>
+                        <h:outputText value="#{bundle.ViewFactureLabel_montant}"/>
+                        <h:outputText value="#{factureController.selected.montant}" title="#{bundle.ViewFactureTitle_montant}"/>
+                        <h:outputText value="#{bundle.ViewFactureLabel_datePaiement}"/>
+                        <h:outputText value="#{factureController.selected.datePaiement}" title="#{bundle.ViewFactureTitle_datePaiement}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFactureLabel_dateExpedition}"/>
+                        <h:outputText value="#{factureController.selected.dateExpedition}" title="#{bundle.ViewFactureTitle_dateExpedition}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFactureLabel_restaurant}"/>
+                        <h:outputText value="#{factureController.selected.restaurant}" title="#{bundle.ViewFactureTitle_restaurant}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FactureViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

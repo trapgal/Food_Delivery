@@ -39,6 +39,38 @@ public class CommandeItem implements Serializable {
         this.id = id;
     }
 
+    public Double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Double prix) {
+        this.prix = prix;
+    }
+
+    public int getQte() {
+        return qte;
+    }
+
+    public void setQte(int qte) {
+        this.qte = qte;
+    }
+
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+    public Repas getRepas() {
+        return repas;
+    }
+
+    public void setRepas(Repas repas) {
+        this.repas = repas;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

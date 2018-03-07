@@ -22,6 +22,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Restaurant implements Serializable {
 
+    @OneToMany(mappedBy = "restaurant")
+    private List<Facture> factures;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

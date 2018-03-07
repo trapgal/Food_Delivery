@@ -29,6 +29,22 @@ public class Supplement implements Serializable {
     @OneToMany(mappedBy = "supplement")
     private List<SupplementRepas> supplementRepass;
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public List<SupplementRepas> getSupplementRepass() {
+        return supplementRepass;
+    }
+
+    public void setSupplementRepass(List<SupplementRepas> supplementRepass) {
+        this.supplementRepass = supplementRepass;
+    }
+
     public Long getId() {
         return id;
     }

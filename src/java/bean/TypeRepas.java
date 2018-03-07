@@ -25,8 +25,25 @@ public class TypeRepas implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
+    
     @OneToMany(mappedBy = "typeRepas")
     private List<Repas> repass;
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public List<Repas> getRepass() {
+        return repass;
+    }
+
+    public void setRepass(List<Repas> repass) {
+        this.repass = repass;
+    }
 
     public Long getId() {
         return id;

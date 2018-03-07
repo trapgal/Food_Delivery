@@ -28,6 +28,22 @@ public class SupplementRepas implements Serializable {
     @ManyToOne
     private Repas repas;
 
+    public Supplement getSupplement() {
+        return supplement;
+    }
+
+    public void setSupplement(Supplement supplement) {
+        this.supplement = supplement;
+    }
+
+    public Repas getRepas() {
+        return repas;
+    }
+
+    public void setRepas(Repas repas) {
+        this.repas = repas;
+    }
+
     public Long getId() {
         return id;
     }

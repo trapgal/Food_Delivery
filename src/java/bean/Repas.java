@@ -43,6 +43,78 @@ public class Repas implements Serializable {
     @OneToMany(mappedBy = "repas")
     private List<CommandeItem> commandeItems;
 
+    public List<SupplementRepas> getSupplementRepass() {
+        return supplementRepass;
+    }
+
+    public void setSupplementRepass(List<SupplementRepas> supplementRepass) {
+        this.supplementRepass = supplementRepass;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Double prix) {
+        this.prix = prix;
+    }
+
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
+    }
+
+    public List<Supplement> getSupplements() {
+        return supplements;
+    }
+
+    public void setSupplements(List<Supplement> supplements) {
+        this.supplements = supplements;
+    }
+
+    public TypeRepas getTypeRepas() {
+        return typeRepas;
+    }
+
+    public void setTypeRepas(TypeRepas typeRepas) {
+        this.typeRepas = typeRepas;
+    }
+
+    public List<IngredientRepas> getIngredientRepass() {
+        return ingredientRepass;
+    }
+
+    public void setIngredientRepass(List<IngredientRepas> ingredientRepass) {
+        this.ingredientRepass = ingredientRepass;
+    }
+
+    public NationaliteRepas getNationaliteRepas() {
+        return nationaliteRepas;
+    }
+
+    public void setNationaliteRepas(NationaliteRepas nationaliteRepas) {
+        this.nationaliteRepas = nationaliteRepas;
+    }
+
+    public List<CommandeItem> getCommandeItems() {
+        return commandeItems;
+    }
+
+    public void setCommandeItems(List<CommandeItem> commandeItems) {
+        this.commandeItems = commandeItems;
+    }
+
     public Long getId() {
         return id;
     }
