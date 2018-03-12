@@ -21,7 +21,15 @@
                         <p:outputLabel value="#{bundle.CreateClientLabel_telephone}" for="telephone" />
                         <p:inputText id="telephone" value="#{clientController.selected.telephone}" title="#{bundle.CreateClientTitle_telephone}" />
                         <p:outputLabel value="#{bundle.CreateClientLabel_ville}" for="ville" />
-                        <p:inputText id="ville" value="#{clientController.selected.ville}" title="#{bundle.CreateClientTitle_ville}" />
+                       
+                         <p:selectOneMenu id="ville" value="#{clientController.selected.ville}" >
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOneVille}"
+                                          var="villeItem"
+                                          itemValue="#{villeItem}"
+                                          
+                                          />
+                        </p:selectOneMenu>
+                                         
                         <p:outputLabel value="#{bundle.CreateClientLabel_dateNaissance}" for="dateNaissance" />
                         <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{clientController.selected.dateNaissance}" title="#{bundle.EditClientTitle_dateNaissance}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateClientLabel_id}" for="id" />

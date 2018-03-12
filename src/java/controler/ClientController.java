@@ -1,6 +1,7 @@
 package controler;
 
 import bean.Client;
+import bean.Ville;
 import controler.util.JsfUtil;
 import controler.util.JsfUtil.PersistAction;
 import service.ClientFacade;
@@ -25,13 +26,19 @@ public class ClientController implements Serializable {
 
     @EJB
     private service.ClientFacade ejbFacade;
+    @EJB
+    private service.VilleFacade villeFacade;
     private List<Client> items = null;
+    private List<String> villes = null;
     private Client selected;
 
     public ClientController() {
     }
 
     public Client getSelected() {
+        if(selected == null){
+            selected = new Client();
+        }
         return selected;
     }
 
@@ -49,10 +56,16 @@ public class ClientController implements Serializable {
         return ejbFacade;
     }
 
+ 
     public Client prepareCreate() {
         selected = new Client();
         initializeEmbeddableKey();
         return selected;
+    }
+    
+     public List<Ville> getItemsAvailableSelectOneVille() {
+       return villeFacade.findAll();
+       
     }
 
     public void create() {
