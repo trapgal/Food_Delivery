@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("factureController")
 @SessionScoped
 public class FactureController implements Serializable {
 
-    @EJB
-    private service.FactureFacade ejbFacade;
+
+    @EJB private service.FactureFacade ejbFacade;
     private List<Facture> items = null;
     private Facture selected;
 
@@ -121,7 +122,7 @@ public class FactureController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Facture.class)
+    @FacesConverter(forClass=Facture.class)
     public static class FactureControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class FactureController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            FactureController controller = (FactureController) facesContext.getApplication().getELResolver().
+            FactureController controller = (FactureController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "factureController");
             return controller.getFacture(getKey(value));
         }

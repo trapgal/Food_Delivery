@@ -12,6 +12,10 @@
             <h:form id="IngredientRepasViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ingredientRepasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIngredientRepasLabel_ingredient}"/>
+                        <h:outputText value="#{ingredientRepasController.selected.ingredient}" title="#{bundle.ViewIngredientRepasTitle_ingredient}"/>
+                        <h:outputText value="#{bundle.ViewIngredientRepasLabel_repas}"/>
+                        <h:outputText value="#{ingredientRepasController.selected.repas}" title="#{bundle.ViewIngredientRepasTitle_repas}"/>
                         <h:outputText value="#{bundle.ViewIngredientRepasLabel_id}"/>
                         <h:outputText value="#{ingredientRepasController.selected.id}" title="#{bundle.ViewIngredientRepasTitle_id}"/>
                     </p:panelGrid>

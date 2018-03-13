@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("livreurController")
 @SessionScoped
 public class LivreurController implements Serializable {
 
-    @EJB
-    private service.LivreurFacade ejbFacade;
+
+    @EJB private service.LivreurFacade ejbFacade;
     private List<Livreur> items = null;
     private Livreur selected;
 
@@ -121,7 +122,7 @@ public class LivreurController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Livreur.class)
+    @FacesConverter(forClass=Livreur.class)
     public static class LivreurControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class LivreurController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            LivreurController controller = (LivreurController) facesContext.getApplication().getELResolver().
+            LivreurController controller = (LivreurController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "livreurController");
             return controller.getLivreur(getKey(value));
         }

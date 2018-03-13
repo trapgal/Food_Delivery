@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("commandeController")
 @SessionScoped
 public class CommandeController implements Serializable {
 
-    @EJB
-    private service.CommandeFacade ejbFacade;
+
+    @EJB private service.CommandeFacade ejbFacade;
     private List<Commande> items = null;
     private Commande selected;
 
@@ -121,7 +122,7 @@ public class CommandeController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Commande.class)
+    @FacesConverter(forClass=Commande.class)
     public static class CommandeControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class CommandeController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            CommandeController controller = (CommandeController) facesContext.getApplication().getELResolver().
+            CommandeController controller = (CommandeController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "commandeController");
             return controller.getCommande(getKey(value));
         }

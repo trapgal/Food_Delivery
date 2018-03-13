@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("adminController")
 @SessionScoped
 public class AdminController implements Serializable {
 
-    @EJB
-    private service.AdminFacade ejbFacade;
+
+    @EJB private service.AdminFacade ejbFacade;
     private List<Admin> items = null;
     private Admin selected;
 
@@ -121,7 +122,7 @@ public class AdminController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Admin.class)
+    @FacesConverter(forClass=Admin.class)
     public static class AdminControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class AdminController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            AdminController controller = (AdminController) facesContext.getApplication().getELResolver().
+            AdminController controller = (AdminController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "adminController");
             return controller.getAdmin(getKey(value));
         }

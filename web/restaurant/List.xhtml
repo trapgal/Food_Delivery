@@ -33,6 +33,54 @@
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_adresseResto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adresseResto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_heureOuverture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.heureOuverture}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_heureFermeture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.heureFermeture}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_lat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_lng}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lng}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_storeOwner}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.storeOwner}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_quartier}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quartier}"/>
+                        </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{restaurantController.prepareCreate}" update=":RestaurantCreateForm" oncomplete="PF('RestaurantCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":RestaurantViewForm" oncomplete="PF('RestaurantViewDialog').show()" disabled="#{empty restaurantController.selected}"/>

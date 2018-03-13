@@ -52,6 +52,104 @@ public class Restaurant implements Serializable {
         this.id = id;
     }
 
+    public List<Facture> getFactures() {
+        return factures;
+    }
+
+    public void setFactures(List<Facture> factures) {
+        this.factures = factures;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getAdresseResto() {
+        return adresseResto;
+    }
+
+    public void setAdresseResto(String adresseResto) {
+        this.adresseResto = adresseResto;
+    }
+
+    public String getHeureOuverture() {
+        return heureOuverture;
+    }
+
+    public void setHeureOuverture(String heureOuverture) {
+        this.heureOuverture = heureOuverture;
+    }
+
+    public String getHeureFermeture() {
+        return heureFermeture;
+    }
+
+    public void setHeureFermeture(String heureFermeture) {
+        this.heureFermeture = heureFermeture;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    public List<Repas> getRepass() {
+        return repass;
+    }
+
+    public void setRepass(List<Repas> repass) {
+        this.repass = repass;
+    }
+
+    public StoreOwner getStoreOwner() {
+        return storeOwner;
+    }
+
+    public void setStoreOwner(StoreOwner storeOwner) {
+        this.storeOwner = storeOwner;
+    }
+
+    public Quartier getQuartier() {
+        return quartier;
+    }
+
+    public void setQuartier(Quartier quartier) {
+        this.quartier = quartier;
+    }
+
+    public Restaurant(List<Facture> factures, Long id, String nom, String adresseResto, String heureOuverture, String heureFermeture, String lat, String lng, List<Repas> repass, StoreOwner storeOwner, Quartier quartier) {
+        this.factures = factures;
+        this.id = id;
+        this.nom = nom;
+        this.adresseResto = adresseResto;
+        this.heureOuverture = heureOuverture;
+        this.heureFermeture = heureFermeture;
+        this.lat = lat;
+        this.lng = lng;
+        this.repass = repass;
+        this.storeOwner = storeOwner;
+        this.quartier = quartier;
+    }
+
+    public Restaurant() {
+    }
+    
+
     @Override
     public int hashCode() {
         int hash = 0;

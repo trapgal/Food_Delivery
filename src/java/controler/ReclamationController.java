@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("reclamationController")
 @SessionScoped
 public class ReclamationController implements Serializable {
 
-    @EJB
-    private service.ReclamationFacade ejbFacade;
+
+    @EJB private service.ReclamationFacade ejbFacade;
     private List<Reclamation> items = null;
     private Reclamation selected;
 
@@ -121,7 +122,7 @@ public class ReclamationController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Reclamation.class)
+    @FacesConverter(forClass=Reclamation.class)
     public static class ReclamationControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class ReclamationController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            ReclamationController controller = (ReclamationController) facesContext.getApplication().getELResolver().
+            ReclamationController controller = (ReclamationController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "reclamationController");
             return controller.getReclamation(getKey(value));
         }

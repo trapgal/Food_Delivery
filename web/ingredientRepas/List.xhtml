@@ -29,6 +29,18 @@
 
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIngredientRepasTitle_ingredient}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingredient}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIngredientRepasTitle_repas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.repas}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIngredientRepasTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>

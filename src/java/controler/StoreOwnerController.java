@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("storeOwnerController")
 @SessionScoped
 public class StoreOwnerController implements Serializable {
 
-    @EJB
-    private service.StoreOwnerFacade ejbFacade;
+
+    @EJB private service.StoreOwnerFacade ejbFacade;
     private List<StoreOwner> items = null;
     private StoreOwner selected;
 
@@ -121,7 +122,7 @@ public class StoreOwnerController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = StoreOwner.class)
+    @FacesConverter(forClass=StoreOwner.class)
     public static class StoreOwnerControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class StoreOwnerController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            StoreOwnerController controller = (StoreOwnerController) facesContext.getApplication().getELResolver().
+            StoreOwnerController controller = (StoreOwnerController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "storeOwnerController");
             return controller.getStoreOwner(getKey(value));
         }

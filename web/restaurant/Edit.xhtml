@@ -14,6 +14,32 @@
                     <p:panelGrid columns="2" rendered="#{restaurantController.selected != null}">
                         <p:outputLabel value="#{bundle.EditRestaurantLabel_id}" for="id" />
                         <p:inputText id="id" value="#{restaurantController.selected.id}" title="#{bundle.EditRestaurantTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{restaurantController.selected.nom}" title="#{bundle.EditRestaurantTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_adresseResto}" for="adresseResto" />
+                        <p:inputText id="adresseResto" value="#{restaurantController.selected.adresseResto}" title="#{bundle.EditRestaurantTitle_adresseResto}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_heureOuverture}" for="heureOuverture" />
+                        <p:inputText id="heureOuverture" value="#{restaurantController.selected.heureOuverture}" title="#{bundle.EditRestaurantTitle_heureOuverture}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_heureFermeture}" for="heureFermeture" />
+                        <p:inputText id="heureFermeture" value="#{restaurantController.selected.heureFermeture}" title="#{bundle.EditRestaurantTitle_heureFermeture}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_lat}" for="lat" />
+                        <p:inputText id="lat" value="#{restaurantController.selected.lat}" title="#{bundle.EditRestaurantTitle_lat}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_lng}" for="lng" />
+                        <p:inputText id="lng" value="#{restaurantController.selected.lng}" title="#{bundle.EditRestaurantTitle_lng}" />
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_storeOwner}" for="storeOwner" />
+                        <p:selectOneMenu id="storeOwner" value="#{restaurantController.selected.storeOwner}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{storeOwnerController.itemsAvailableSelectOne}"
+                                           var="storeOwnerItem"
+                                           itemValue="#{storeOwnerItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditRestaurantLabel_quartier}" for="quartier" />
+                        <p:selectOneMenu id="quartier" value="#{restaurantController.selected.quartier}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{quartierController.itemsAvailableSelectOne}"
+                                           var="quartierItem"
+                                           itemValue="#{quartierItem}"/>
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{restaurantController.update}" value="#{bundle.Save}" update="display,:RestaurantListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RestaurantEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="RestaurantEditDialog.hide()"/>

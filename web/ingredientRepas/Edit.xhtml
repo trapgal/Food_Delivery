@@ -12,6 +12,20 @@
             <h:form id="IngredientRepasEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ingredientRepasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditIngredientRepasLabel_ingredient}" for="ingredient" />
+                        <p:selectOneMenu id="ingredient" value="#{ingredientRepasController.selected.ingredient}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{ingredientController.itemsAvailableSelectOne}"
+                                           var="ingredientItem"
+                                           itemValue="#{ingredientItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditIngredientRepasLabel_repas}" for="repas" />
+                        <p:selectOneMenu id="repas" value="#{ingredientRepasController.selected.repas}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{repasController.itemsAvailableSelectOne}"
+                                           var="repasItem"
+                                           itemValue="#{repasItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditIngredientRepasLabel_id}" for="id" />
                         <p:inputText id="id" value="#{ingredientRepasController.selected.id}" title="#{bundle.EditIngredientRepasTitle_id}" />
                     </p:panelGrid>

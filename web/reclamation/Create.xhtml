@@ -14,6 +14,8 @@
                     <p:panelGrid columns="2" rendered="#{reclamationController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateReclamationLabel_id}" for="id" />
                         <p:inputText id="id" value="#{reclamationController.selected.id}" title="#{bundle.CreateReclamationTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateReclamationLabel_dateTraitement}" for="dateTraitement" />
+                        <p:calendar id="dateTraitement" pattern="MM/dd/yyyy" value="#{reclamationController.selected.dateTraitement}" title="#{bundle.EditReclamationTitle_dateTraitement}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateReclamationLabel_numReclamation}" for="numReclamation" />
                         <p:inputText id="numReclamation" value="#{reclamationController.selected.numReclamation}" title="#{bundle.CreateReclamationTitle_numReclamation}" />
                         <p:outputLabel value="#{bundle.CreateReclamationLabel_dateReclamation}" for="dateReclamation" />

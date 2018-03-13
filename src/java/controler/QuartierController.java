@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("quartierController")
 @SessionScoped
 public class QuartierController implements Serializable {
 
-    @EJB
-    private service.QuartierFacade ejbFacade;
+
+    @EJB private service.QuartierFacade ejbFacade;
     private List<Quartier> items = null;
     private Quartier selected;
 
@@ -121,7 +122,7 @@ public class QuartierController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Quartier.class)
+    @FacesConverter(forClass=Quartier.class)
     public static class QuartierControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class QuartierController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            QuartierController controller = (QuartierController) facesContext.getApplication().getELResolver().
+            QuartierController controller = (QuartierController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "quartierController");
             return controller.getQuartier(getKey(value));
         }

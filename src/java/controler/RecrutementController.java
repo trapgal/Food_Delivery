@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("recrutementController")
 @SessionScoped
 public class RecrutementController implements Serializable {
 
-    @EJB
-    private service.RecrutementFacade ejbFacade;
+
+    @EJB private service.RecrutementFacade ejbFacade;
     private List<Recrutement> items = null;
     private Recrutement selected;
 
@@ -121,7 +122,7 @@ public class RecrutementController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Recrutement.class)
+    @FacesConverter(forClass=Recrutement.class)
     public static class RecrutementControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class RecrutementController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            RecrutementController controller = (RecrutementController) facesContext.getApplication().getELResolver().
+            RecrutementController controller = (RecrutementController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "recrutementController");
             return controller.getRecrutement(getKey(value));
         }

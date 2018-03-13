@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("nationaliteRepasController")
 @SessionScoped
 public class NationaliteRepasController implements Serializable {
 
-    @EJB
-    private service.NationaliteRepasFacade ejbFacade;
+
+    @EJB private service.NationaliteRepasFacade ejbFacade;
     private List<NationaliteRepas> items = null;
     private NationaliteRepas selected;
 
@@ -121,7 +122,7 @@ public class NationaliteRepasController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = NationaliteRepas.class)
+    @FacesConverter(forClass=NationaliteRepas.class)
     public static class NationaliteRepasControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class NationaliteRepasController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            NationaliteRepasController controller = (NationaliteRepasController) facesContext.getApplication().getELResolver().
+            NationaliteRepasController controller = (NationaliteRepasController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "nationaliteRepasController");
             return controller.getNationaliteRepas(getKey(value));
         }

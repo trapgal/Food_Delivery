@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("favorisController")
 @SessionScoped
 public class FavorisController implements Serializable {
 
-    @EJB
-    private service.FavorisFacade ejbFacade;
+
+    @EJB private service.FavorisFacade ejbFacade;
     private List<Favoris> items = null;
     private Favoris selected;
 
@@ -121,7 +122,7 @@ public class FavorisController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Favoris.class)
+    @FacesConverter(forClass=Favoris.class)
     public static class FavorisControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class FavorisController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            FavorisController controller = (FavorisController) facesContext.getApplication().getELResolver().
+            FavorisController controller = (FavorisController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "favorisController");
             return controller.getFavoris(getKey(value));
         }

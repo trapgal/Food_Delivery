@@ -14,6 +14,22 @@
                     <p:panelGrid columns="2" rendered="#{restaurantController.selected != null}">
                         <h:outputText value="#{bundle.ViewRestaurantLabel_id}"/>
                         <h:outputText value="#{restaurantController.selected.id}" title="#{bundle.ViewRestaurantTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_nom}"/>
+                        <h:outputText value="#{restaurantController.selected.nom}" title="#{bundle.ViewRestaurantTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_adresseResto}"/>
+                        <h:outputText value="#{restaurantController.selected.adresseResto}" title="#{bundle.ViewRestaurantTitle_adresseResto}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_heureOuverture}"/>
+                        <h:outputText value="#{restaurantController.selected.heureOuverture}" title="#{bundle.ViewRestaurantTitle_heureOuverture}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_heureFermeture}"/>
+                        <h:outputText value="#{restaurantController.selected.heureFermeture}" title="#{bundle.ViewRestaurantTitle_heureFermeture}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_lat}"/>
+                        <h:outputText value="#{restaurantController.selected.lat}" title="#{bundle.ViewRestaurantTitle_lat}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_lng}"/>
+                        <h:outputText value="#{restaurantController.selected.lng}" title="#{bundle.ViewRestaurantTitle_lng}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_storeOwner}"/>
+                        <h:outputText value="#{restaurantController.selected.storeOwner}" title="#{bundle.ViewRestaurantTitle_storeOwner}"/>
+                        <h:outputText value="#{bundle.ViewRestaurantLabel_quartier}"/>
+                        <h:outputText value="#{restaurantController.selected.quartier}" title="#{bundle.ViewRestaurantTitle_quartier}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="RestaurantViewDialog.hide()"/>
                 </h:panelGroup>

@@ -12,6 +12,8 @@
             <h:form id="TypeRepasViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{typeRepasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTypeRepasLabel_nom}"/>
+                        <h:outputText value="#{typeRepasController.selected.nom}" title="#{bundle.ViewTypeRepasTitle_nom}"/>
                         <h:outputText value="#{bundle.ViewTypeRepasLabel_id}"/>
                         <h:outputText value="#{typeRepasController.selected.id}" title="#{bundle.ViewTypeRepasTitle_id}"/>
                     </p:panelGrid>

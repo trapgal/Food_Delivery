@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("typeRepasController")
 @SessionScoped
 public class TypeRepasController implements Serializable {
 
-    @EJB
-    private service.TypeRepasFacade ejbFacade;
+
+    @EJB private service.TypeRepasFacade ejbFacade;
     private List<TypeRepas> items = null;
     private TypeRepas selected;
 
@@ -121,7 +122,7 @@ public class TypeRepasController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = TypeRepas.class)
+    @FacesConverter(forClass=TypeRepas.class)
     public static class TypeRepasControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class TypeRepasController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            TypeRepasController controller = (TypeRepasController) facesContext.getApplication().getELResolver().
+            TypeRepasController controller = (TypeRepasController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "typeRepasController");
             return controller.getTypeRepas(getKey(value));
         }

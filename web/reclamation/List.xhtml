@@ -35,6 +35,14 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReclamationTitle_dateTraitement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateTraitement}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListReclamationTitle_numReclamation}"/>
                             </f:facet>
                             <h:outputText value="#{item.numReclamation}"/>

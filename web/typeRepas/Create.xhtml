@@ -12,6 +12,8 @@
             <h:form id="TypeRepasCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{typeRepasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTypeRepasLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{typeRepasController.selected.nom}" title="#{bundle.CreateTypeRepasTitle_nom}" />
                         <p:outputLabel value="#{bundle.CreateTypeRepasLabel_id}" for="id" />
                         <p:inputText id="id" value="#{typeRepasController.selected.id}" title="#{bundle.CreateTypeRepasTitle_id}" />
                     </p:panelGrid>

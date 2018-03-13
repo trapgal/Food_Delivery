@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("supplementRepasController")
 @SessionScoped
 public class SupplementRepasController implements Serializable {
 
-    @EJB
-    private service.SupplementRepasFacade ejbFacade;
+
+    @EJB private service.SupplementRepasFacade ejbFacade;
     private List<SupplementRepas> items = null;
     private SupplementRepas selected;
 
@@ -121,7 +122,7 @@ public class SupplementRepasController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = SupplementRepas.class)
+    @FacesConverter(forClass=SupplementRepas.class)
     public static class SupplementRepasControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class SupplementRepasController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            SupplementRepasController controller = (SupplementRepasController) facesContext.getApplication().getELResolver().
+            SupplementRepasController controller = (SupplementRepasController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "supplementRepasController");
             return controller.getSupplementRepas(getKey(value));
         }
