@@ -1,5 +1,6 @@
 package controler;
 
+import bean.Quartier;
 import bean.Restaurant;
 import controler.util.JsfUtil;
 import controler.util.JsfUtil.PersistAction;
@@ -18,6 +19,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.ValueChangeEvent;
+import service.QuartierFacade;
 
 @Named("restaurantController")
 @SessionScoped
@@ -25,13 +28,19 @@ public class RestaurantController implements Serializable {
 
     @EJB
     private service.RestaurantFacade ejbFacade;
+    @EJB
+    private service.QuartierFacade quartierFacade;
     private List<Restaurant> items = null;
+    private List<Quartier> quartiers = null;
     private Restaurant selected;
 
     public RestaurantController() {
     }
 
     public Restaurant getSelected() {
+        if (selected == null) {
+            selected = new Restaurant();
+        }
         return selected;
     }
 
@@ -79,6 +88,10 @@ public class RestaurantController implements Serializable {
             items = getFacade().findAll();
         }
         return items;
+    }
+
+    public void findQuartierByStoreOwner() {
+        quartiers = quartierFacade.findByByStoreOwner(getSelected().getStoreOwner());
     }
 
     private void persist(PersistAction persistAction, String successMessage) {
@@ -160,6 +173,30 @@ public class RestaurantController implements Serializable {
             }
         }
 
+    }
+
+    public RestaurantFacade getEjbFacade() {
+        return ejbFacade;
+    }
+
+    public void setEjbFacade(RestaurantFacade ejbFacade) {
+        this.ejbFacade = ejbFacade;
+    }
+
+    public QuartierFacade getQuartierFacade() {
+        return quartierFacade;
+    }
+
+    public void setQuartierFacade(QuartierFacade quartierFacade) {
+        this.quartierFacade = quartierFacade;
+    }
+
+    public List<Quartier> getQuartiers() {
+        return quartiers;
+    }
+
+    public void setQuartiers(List<Quartier> quartiers) {
+        this.quartiers = quartiers;
     }
 
 }

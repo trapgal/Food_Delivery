@@ -55,6 +55,17 @@ public class Quartier implements Serializable {
         this.ville = ville;
     }
 
+    public Quartier() {
+    }
+
+    public Quartier(Long id, String nom, Ville ville, List<Restaurant> restaurants) {
+        this.id = id;
+        this.nom = nom;
+        this.ville = ville;
+        this.restaurants = restaurants;
+    }
+    
+
     public List<Restaurant> getRestaurants() {
         return restaurants;
     }
@@ -85,7 +96,8 @@ public class Quartier implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Admin[ id=" + id + " ]";
+//        return "bean.Admin[ id=" + id + " ]";
+    return nom;
     }
 
 }

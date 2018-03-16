@@ -28,16 +28,19 @@
                         <p:inputText id="lng" value="#{restaurantController.selected.lng}" title="#{bundle.CreateRestaurantTitle_lng}" />
                         <p:outputLabel value="#{bundle.CreateRestaurantLabel_storeOwner}" for="storeOwner" />
                         <p:selectOneMenu id="storeOwner" value="#{restaurantController.selected.storeOwner}" >
+                            <p:ajax process="storeOwner" listener="#{restaurantController.findQuartierByStoreOwner()}" update="quartier" />
                             <f:selectItems value="#{storeOwnerController.itemsAvailableSelectOne}"
                                            var="storeOwnerItem"
+                                           
                                            itemValue="#{storeOwnerItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateRestaurantLabel_quartier}" for="quartier" />
-                        <p:selectOneMenu id="quartier" value="#{restaurantController.selected.quartier}" >
-                            <f:selectItems value="#{quartierController.itemsAvailableSelectOne}"
-                                           var="quartierItem"
+                        <p:selectOneMenu id="quartier" value="#{restaurantController.selected.quartier}">
+                            <f:selectItems value="#{restaurantController.quartiers}"
+                                           
                                            itemValue="#{quartierItem}"/>
                         </p:selectOneMenu>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{restaurantController.create}" value="#{bundle.Save}" update="display,:RestaurantListForm:datalist,:growl" oncomplete="handleSubmit(args,'RestaurantCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="RestaurantCreateDialog.hide()"/>

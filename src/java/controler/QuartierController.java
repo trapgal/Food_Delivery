@@ -1,6 +1,7 @@
 package controler;
 
 import bean.Quartier;
+import bean.StoreOwner;
 import controler.util.JsfUtil;
 import controler.util.JsfUtil.PersistAction;
 import service.QuartierFacade;
@@ -120,8 +121,8 @@ public class QuartierController implements Serializable {
 
     public List<Quartier> getItemsAvailableSelectOne() {
         return getFacade().findAll();
-    }
-
+        }
+   
     @FacesConverter(forClass=Quartier.class)
     public static class QuartierControllerConverter implements Converter {
 

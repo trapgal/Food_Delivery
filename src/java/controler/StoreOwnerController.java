@@ -1,5 +1,6 @@
 package controler;
 
+import bean.Quartier;
 import bean.StoreOwner;
 import controler.util.JsfUtil;
 import controler.util.JsfUtil.PersistAction;
@@ -26,15 +27,20 @@ public class StoreOwnerController implements Serializable {
 
 
     @EJB private service.StoreOwnerFacade ejbFacade;
+  
     private List<StoreOwner> items = null;
+    
     private StoreOwner selected;
-
+    
+    private List<Quartier> quartiers = null;
+    
     public StoreOwnerController() {
     }
 
     public StoreOwner getSelected() {
         return selected;
     }
+    
 
     public void setSelected(StoreOwner selected) {
         this.selected = selected;
@@ -62,6 +68,8 @@ public class StoreOwnerController implements Serializable {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
+    
+ 
 
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("StoreOwnerUpdated"));
@@ -162,5 +170,23 @@ public class StoreOwnerController implements Serializable {
         }
 
     }
+
+    public List<Quartier> getQuartiers() {
+        return quartiers;
+    }
+
+    public void setQuartiers(List<Quartier> quartiers) {
+        this.quartiers = quartiers;
+    }
+
+    public StoreOwnerFacade getEjbFacade() {
+        return ejbFacade;
+    }
+
+    public void setEjbFacade(StoreOwnerFacade ejbFacade) {
+        this.ejbFacade = ejbFacade;
+    }
+
+  
 
 }

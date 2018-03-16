@@ -6,6 +6,8 @@
 package service;
 
 import bean.Quartier;
+import bean.StoreOwner;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +30,12 @@ public class QuartierFacade extends AbstractFacade<Quartier> {
     public QuartierFacade() {
         super(Quartier.class);
     }
-    
+
+    public List<Quartier> findByByStoreOwner(StoreOwner storeOwner) {
+        System.out.println("haaa sotoreOwner => " + storeOwner);
+        List<Quartier> res = em.createQuery("SELECT q FROM Quartier q WHERE q.ville.nom ='" + storeOwner.getVille() + "'").getResultList();
+        System.out.println("haaa res ==> " + res);
+        return res;
+    }
+
 }

@@ -32,6 +32,16 @@ public class Ville implements Serializable {
         return nom;
     }
 
+    public Ville() {
+    }
+
+    public Ville(Long id, String nom, List<Quartier> quartiers) {
+        this.id = id;
+        this.nom = nom;
+        this.quartiers = quartiers;
+    }
+    
+
     public void setNom(String nom) {
         this.nom = nom;
     }
