@@ -35,18 +35,28 @@ public class Restaurant implements Serializable {
     private String heureFermeture;
     private String lat;
     private String lng;
-    @OneToMany
-    private List<Repas> repass;
-    @OneToOne(mappedBy = "restaurant")
+//    @OneToMany
+//    private List<Repas> repass;
     @ManyToOne
     private StoreOwner storeOwner;
 
     @ManyToOne
     private Quartier quartier;
+    @OneToMany(mappedBy = "restaurant")
+    private List<RepasResto> repasRestos;
 
     public Long getId() {
         return id;
     }
+
+    public List<RepasResto> getRepasRestos() {
+        return repasRestos;
+    }
+
+    public void setRepasRestos(List<RepasResto> repasRestos) {
+        this.repasRestos = repasRestos;
+    }
+    
 
     public void setId(Long id) {
         this.id = id;
@@ -108,14 +118,6 @@ public class Restaurant implements Serializable {
         this.lng = lng;
     }
 
-    public List<Repas> getRepass() {
-        return repass;
-    }
-
-    public void setRepass(List<Repas> repass) {
-        this.repass = repass;
-    }
-
     public StoreOwner getStoreOwner() {
         return storeOwner;
     }
@@ -141,7 +143,7 @@ public class Restaurant implements Serializable {
         this.heureFermeture = heureFermeture;
         this.lat = lat;
         this.lng = lng;
-        this.repass = repass;
+       
         this.storeOwner = storeOwner;
         this.quartier = quartier;
     }

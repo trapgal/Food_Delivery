@@ -29,19 +29,21 @@ public class Repas implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
-    private Double prix;
-    @OneToMany
-    private List<Restaurant> restaurants;
-    @OneToMany
-    private List<Supplement> supplements;
+    //private Double prix;
+//    @OneToMany
+//    private List<Restaurant> restaurants;
+//    @OneToMany
+//    private List<Supplement> supplements;
     @ManyToOne
     private TypeRepas typeRepas;
     @OneToMany(mappedBy = "repas")
     private List<IngredientRepas> ingredientRepass;
     @ManyToOne
     private NationaliteRepas nationaliteRepas;
+    //@OneToMany(mappedBy = "repas")
+    //private List<CommandeItem> commandeItems;
     @OneToMany(mappedBy = "repas")
-    private List<CommandeItem> commandeItems;
+    private List<RepasResto> repasRestos;
 
     public List<SupplementRepas> getSupplementRepass() {
         return supplementRepass;
@@ -59,33 +61,33 @@ public class Repas implements Serializable {
         this.nom = nom;
     }
 
-    public Double getPrix() {
-        return prix;
+    public Repas() {
     }
 
-    public void setPrix(Double prix) {
-        this.prix = prix;
+    public Repas(List<SupplementRepas> supplementRepass, Long id, String nom, TypeRepas typeRepas, List<IngredientRepas> ingredientRepass, NationaliteRepas nationaliteRepas, List<CommandeItem> commandeItems) {
+        this.supplementRepass = supplementRepass;
+        this.id = id;
+        this.nom = nom;
+        this.typeRepas = typeRepas;
+        this.ingredientRepass = ingredientRepass;
+        this.nationaliteRepas = nationaliteRepas;
     }
 
-    public List<Restaurant> getRestaurants() {
-        return restaurants;
-    }
 
-    public void setRestaurants(List<Restaurant> restaurants) {
-        this.restaurants = restaurants;
-    }
-
-    public List<Supplement> getSupplements() {
-        return supplements;
-    }
-
-    public void setSupplements(List<Supplement> supplements) {
-        this.supplements = supplements;
-    }
+   
 
     public TypeRepas getTypeRepas() {
         return typeRepas;
     }
+
+    public List<RepasResto> getRepasRestos() {
+        return repasRestos;
+    }
+
+    public void setRepasRestos(List<RepasResto> repasRestos) {
+        this.repasRestos = repasRestos;
+    }
+    
 
     public void setTypeRepas(TypeRepas typeRepas) {
         this.typeRepas = typeRepas;
@@ -107,13 +109,7 @@ public class Repas implements Serializable {
         this.nationaliteRepas = nationaliteRepas;
     }
 
-    public List<CommandeItem> getCommandeItems() {
-        return commandeItems;
-    }
-
-    public void setCommandeItems(List<CommandeItem> commandeItems) {
-        this.commandeItems = commandeItems;
-    }
+   
 
     public Long getId() {
         return id;
@@ -122,7 +118,7 @@ public class Repas implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;

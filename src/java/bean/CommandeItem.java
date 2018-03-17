@@ -29,7 +29,7 @@ public class CommandeItem implements Serializable {
     @ManyToOne
     private Commande commande;
     @ManyToOne
-    private Repas repas;
+    private RepasResto repasResto;
 
     public Long getId() {
         return id;
@@ -63,13 +63,7 @@ public class CommandeItem implements Serializable {
         this.commande = commande;
     }
 
-    public Repas getRepas() {
-        return repas;
-    }
-
-    public void setRepas(Repas repas) {
-        this.repas = repas;
-    }
+   
 
     @Override
     public int hashCode() {
