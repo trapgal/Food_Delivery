@@ -20,8 +20,12 @@
                         <p:inputText id="adresseMail" value="#{storeOwnerController.selected.adresseMail}" title="#{bundle.CreateStoreOwnerTitle_adresseMail}" />
                         <p:outputLabel value="#{bundle.CreateStoreOwnerLabel_telephone}" for="telephone" />
                         <p:inputText id="telephone" value="#{storeOwnerController.selected.telephone}" title="#{bundle.CreateStoreOwnerTitle_telephone}" />
-                                                <p:outputLabel value="#{bundle.CreateStoreOwnerLabel_ville}" for="ville" />
-                        <p:inputText id="ville" value="#{storeOwnerController.selected.ville}" title="#{bundle.CreateStoreOwnerTitle_ville}" />
+                       <p:outputLabel value="#{bundle.CreateStoreOwnerLabel_ville}" for="ville" />
+                       <p:selectOneMenu id="ville" value="#{storeOwnerController.selected.ville}" >
+                            <f:selectItems value="#{villeController.itemsAvailableSelectOne}"
+                                           var="villeItem"
+                                           itemValue="#{villeItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateStoreOwnerLabel_numAutorisation}" for="numAutorisation" />
                         <p:inputText id="numAutorisation" value="#{storeOwnerController.selected.numAutorisation}" title="#{bundle.CreateStoreOwnerTitle_numAutorisation}" />
                         <p:outputLabel value="#{bundle.CreateStoreOwnerLabel_id}" for="id" />
