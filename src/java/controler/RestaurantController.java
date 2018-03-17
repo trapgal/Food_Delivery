@@ -7,6 +7,8 @@ import controler.util.JsfUtil.PersistAction;
 import service.RestaurantFacade;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,6 +35,9 @@ public class RestaurantController implements Serializable {
     private List<Restaurant> items = null;
     private List<Quartier> quartiers = null;
     private Restaurant selected;
+    private Date dateOuverture;        
+    private Date datefermeture;
+    
 
     public RestaurantController() {
     }
@@ -62,6 +67,18 @@ public class RestaurantController implements Serializable {
         selected = new Restaurant();
         initializeEmbeddableKey();
         return selected;
+    }
+    public void dateTostring(){
+        
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        getSelected().setHeureOuverture(format.format(getDateOuverture()));
+        
+    }
+    public void dateTostring2(){
+        
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        getSelected().setHeureFermeture(format.format(getDatefermeture()));
+        
     }
 
     public void create() {
@@ -199,4 +216,26 @@ public class RestaurantController implements Serializable {
         this.quartiers = quartiers;
     }
 
+    public Date getDateOuverture() {
+        if(dateOuverture == null){
+            dateOuverture = new Date();
+        }
+        return dateOuverture;
+    }
+
+    public void setDateOuverture(Date dateOuverture) {
+        this.dateOuverture = dateOuverture;
+    }
+
+    public Date getDatefermeture() {
+        if(datefermeture == null){
+            datefermeture = new Date();
+        }
+        return datefermeture;
+    }
+
+    public void setDatefermeture(Date datefermeture) {
+        this.datefermeture = datefermeture;
+    }
+    
 }

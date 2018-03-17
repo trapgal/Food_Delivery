@@ -18,10 +18,10 @@
                         <p:inputText id="nom" value="#{restaurantController.selected.nom}" title="#{bundle.CreateRestaurantTitle_nom}" />
                         <p:outputLabel value="#{bundle.CreateRestaurantLabel_adresseResto}" for="adresseResto" />
                         <p:inputText id="adresseResto" value="#{restaurantController.selected.adresseResto}" title="#{bundle.CreateRestaurantTitle_adresseResto}" />
-                        <p:outputLabel value="#{bundle.CreateRestaurantLabel_heureOuverture}" for="heureOuverture" />
-                        <p:inputText id="heureOuverture" value="#{restaurantController.selected.heureOuverture}" title="#{bundle.CreateRestaurantTitle_heureOuverture}" />
-                        <p:outputLabel value="#{bundle.CreateRestaurantLabel_heureFermeture}" for="heureFermeture" />
-                        <p:inputText id="heureFermeture" value="#{restaurantController.selected.heureFermeture}" title="#{bundle.CreateRestaurantTitle_heureFermeture}" />
+                        <p:outputLabel value="Date d'ouverture" for="dateouverture" />
+                        <p:calendar id="dateouverture" pattern="HH:mm" value="#{restaurantController.dateOuverture}" title="Date d'ouverture"  showOn="button" onchange="#{restaurantController.dateTostring()}"   timeOnly="true"/>
+                        <p:outputLabel value="Date de fermeture" for="datefermeture" />
+                        <p:calendar id="datefermeture" pattern="HH:mm" value="#{restaurantController.datefermeture}" title="Date de fermeture"  showOn="button" onchange="#{restaurantController.dateTostring2()}"   timeOnly="true"/>
                         <p:outputLabel value="#{bundle.CreateRestaurantLabel_lat}" for="lat" />
                         <p:inputText id="lat" value="#{restaurantController.selected.lat}" title="#{bundle.CreateRestaurantTitle_lat}" />
                         <p:outputLabel value="#{bundle.CreateRestaurantLabel_lng}" for="lng" />
